@@ -1,0 +1,23 @@
+name: Release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Show repository information
+        run: |
+          echo "TYMM Data Engine"
+          echo "Release workflow çalıştı."
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: repository-files
+          path: .
